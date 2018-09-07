@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Consumer } from "../context";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Consumer } from '../context';
 
 class Contact extends Component {
   state = {
@@ -8,9 +8,9 @@ class Contact extends Component {
   };
 
   onShowClick = () => {};
+
   onDeleteClick = (id, dispatch) => {
-    console.log("clicked");
-    dispatch({ type: "DELETE_CONTACT", payload: id });
+    dispatch({ type: 'DELETE_CONTACT', payload: id });
   };
   render() {
     const { id, name, email, phone } = this.props.contact;
@@ -19,7 +19,7 @@ class Contact extends Component {
       <Consumer>
         {value => {
           const { dispatch } = value;
-          return;
+          return(
           <div className="card card-body mb-3">
             <h4>
               {name}{" "}
@@ -48,7 +48,11 @@ class Contact extends Component {
                 <li className="list-group-item"> Phone: {phone}</li>
               </ul>
             ) : null}
-          </div>;
+          </div>
+    );
+          
+          
+          // this has just been added, this is possibly the one we are missing.
         }}
       </Consumer>
     );
